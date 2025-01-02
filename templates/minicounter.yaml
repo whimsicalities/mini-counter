@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minicounter-dp
+  labels:
+    app: minicounter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minicounter
+  template:
+    metadata:
+      labels:
+        app: minicounter
+    spec:
+      containers:
+        - name: minicounter-pod
+          image: minicounter:latest
+          imagePullPolicy: Never
